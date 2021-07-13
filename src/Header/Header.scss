@@ -1,2 +1,74 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid lightgray;
+
+  width: 100%;
+
+  .header__left {
+    display: flex;
+    img {
+      object-fit: contain;
+      // TODO search for object fit later
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .header__search {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 5px;
+      height: 22px;
+      color: gray;
+      background-color: #eef3f8;
+
+      .header__search__icon {
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          color: black;
+        }
+      }
+      input {
+        // TODO look for outline and border and so on
+        outline: none;
+        border: none;
+        background: none;
+      }
+    }
+  }
+
+  .header__right {
+    display: flex;
+  }
+}
+
+.headerOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  color: gray;
+  cursor: pointer;
+  transition: 0.5s;
+
+  .headerOption__icon {
+    object-fit: contain;
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .headerOption__title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  &:hover {
+    color: black;
+  }
 }
