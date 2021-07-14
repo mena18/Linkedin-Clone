@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  background-color: #f3f2f3;
+  display: flex;
+  flex-direction: column;
+  // align-items: center; maybe add it later
+  .app__body {
+    display: flex;
+  }
+}

@@ -1,6 +1,9 @@
 // sass
 import "./Header.scss";
 
+// variables
+import { ImagePath } from "../settings/Global";
+
 // components
 import HeaderOption from "./HeaderOption";
 
@@ -32,10 +35,7 @@ export default function Header() {
         <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
         <HeaderOption Icon={ChatIcon} title="Chat" />
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-        <HeaderOption
-          avatar="https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg"
-          title="Me"
-        />
+        <HeaderOption avatar={ImagePath} title="Me" />
       </div>
     </div>
   );
