@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./auth.scss";
-// import { login } from "../../features/userSlice";
+import { login } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../app/firebase";
 
@@ -11,7 +11,8 @@ export default function Registration({ authType, setAuthType }) {
   const [profilePic, setProfilePic] = useState("");
   const dispatch = useDispatch();
 
-  const handleRegistration = () => {
+  const handleRegistration = (e) => {
+    e.preventDefault();
     if (!name) {
       return alert("A full name is required to register.");
     }
@@ -24,13 +25,14 @@ export default function Registration({ authType, setAuthType }) {
             photoURL: profilePic,
           })
           .then(() => {
-            dispatch();
-            //   login({
-            //     email: userAuth.user.email,
-            //     uid: userAuth.user.uid,
-            //     displayName: name,
-            //     photoUrl: profilePic,
-            //   })
+            dispatch(
+              login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                displayName: name,
+                photoURL: profilePic,
+              })
+            );
           });
       })
       .catch((error) => alert(error));

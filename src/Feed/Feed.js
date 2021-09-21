@@ -14,8 +14,12 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import firebase from "firebase";
 import { db } from "../app/firebase";
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
 function Feed() {
   // TODO work with react-flip-move
+  const user = useSelector(selectUser);
+
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -56,10 +60,10 @@ function Feed() {
     }
 
     db.collection("posts").add({
-      name: "Mina naeem",
-      description: "description",
+      name: user.displayName,
+      description: user.email,
       message: message,
-      photo: "",
+      photo: user.photoURL,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 

@@ -14,9 +14,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     5. [X] add skeleton loader
 5. [X] the widget section
 6. [ ] authentication
-    1. [ ] add redux slice for users
-    2. [ ] create login page
-    3. [ ] create signup page
+    1. [X] create login page
+    2. [X] create signup page
+    3. [ ] add redux slice for users
     4. [ ] authenticate with firebase
 7. [ ] deploy 
 8. [ ] make gif and add to the readme and organize the future todo

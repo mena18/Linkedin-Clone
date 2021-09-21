@@ -1,9 +1,6 @@
 // sass
 import "./Header.scss";
 
-// variables
-import { ImagePath } from "../settings/Global";
-
 // components
 import HeaderOption from "./HeaderOption";
 
@@ -15,7 +12,18 @@ import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import ChatIcon from "@material-ui/icons/Chat";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 // import LinkedinLogo from "../../public/linkedinLogo.png";
+
+import { logout } from "../features/userSlice";
+import { auth } from "../app/firebase";
+import { useDispatch } from "react-redux";
+
 export default function Header() {
+  const dispatch = useDispatch();
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
+
   return (
     <div className="header">
       <div className="header__left">
@@ -32,7 +40,7 @@ export default function Header() {
         <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
         <HeaderOption Icon={ChatIcon} title="Chat" />
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-        <HeaderOption avatar={ImagePath} title="Me" />
+        <HeaderOption avatar title="Me" onClick={logoutOfApp} />
       </div>
     </div>
   );

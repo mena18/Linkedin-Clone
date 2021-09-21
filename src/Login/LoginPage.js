@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./auth.scss";
-// import { login } from "../../features/userSlice";
+import { login } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../app/firebase";
 
@@ -15,13 +15,14 @@ export default function Login({ authType, setAuthType }) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userAuth) => {
-        dispatch();
-        //   login({
-        //     email: userAuth.user.email,
-        //     uid: userAuth.user.uid,
-        //     displayName: userAuth.user.displayName,
-        //     profileUrl: userAuth.user.photoURL,
-        //   })
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            photoURL: userAuth.user.photoURL,
+          })
+        );
       })
       .catch((error) => alert(error));
   };
