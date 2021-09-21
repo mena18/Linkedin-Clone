@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.scss";
+// import firebase from "firebase";
 
 // components
 import Header from "./Header/Header";

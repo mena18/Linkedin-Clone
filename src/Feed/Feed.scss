@@ -16,6 +16,10 @@
       padding: 10px;
       color: gray;
       padding-left: 15px;
+      transition: 0.5s;
+      &.error {
+        border: 1px solid red;
+      }
 
       form {
         display: flex;
@@ -33,6 +37,15 @@
           display: none;
         }
       }
+    }
+    .feed__inputOptions {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    hr {
+      margin-block-start: 16px;
+      margin-block-end: 16px;
     }
   }
 }

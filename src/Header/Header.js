@@ -14,15 +14,12 @@ import SuperVisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import ChatIcon from "@material-ui/icons/Chat";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-
+// import LinkedinLogo from "../../public/linkedinLogo.png";
 export default function Header() {
   return (
     <div className="header">
       <div className="header__left">
-        <img
-          src="https://www.flaticon.com/svg/static/icons/svg/174/174857.svg"
-          alt=""
-        />
+        <img src={process.env.PUBLIC_URL + "/linkedinLogo.png"} alt="" />
         <div className="header__search">
           <SearchIcon className="header__search__icon" />
           <input type="text" />
