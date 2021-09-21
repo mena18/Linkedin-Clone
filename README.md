@@ -6,18 +6,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. [X] Setup the project and Firebase 
 2. [X] build the header
 3. [X] build the sidebar
-4. [ ] build the feed section
+4. [X] build the feed section
     1.  [X] build the feed sections and view posts from local
-    2.  [X] build the feed form and add posts to loacl
-    3.  [ ] add animations with posts
-    4. [ ] get and add posts with firebase 
-5. [ ] authentication
+    2. [X] build the feed form and add posts to loacl
+    3. [X] add animations with posts
+    4. [X] get and add posts with firebase 
+    5. [X] add skeleton loader
+5. [X] the widget section
+6. [ ] authentication
     1. [ ] add redux slice for users
     2. [ ] create login page
     3. [ ] create signup page
     4. [ ] authenticate with firebase
-
-6. [ ] the widget section
 7. [ ] deploy 
 8. [ ] make gif and add to the readme and organize the future todo
 
