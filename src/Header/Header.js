@@ -13,11 +13,27 @@ import ChatIcon from "@material-ui/icons/Chat";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 // import LinkedinLogo from "../../public/linkedinLogo.png";
 
-import { logout } from "../features/userSlice";
-import { auth } from "../app/firebase";
-import { useDispatch } from "react-redux";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Divider from "@material-ui/core/Divider";
 
+import { logout, selectUser } from "../features/userSlice";
+import { auth } from "../app/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { Avatar } from "@material-ui/core";
+import { useState } from "react";
 export default function Header() {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const logoutOfApp = () => {
     dispatch(logout());
@@ -40,7 +56,31 @@ export default function Header() {
         <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
         <HeaderOption Icon={ChatIcon} title="Chat" />
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-        <HeaderOption avatar title="Me" onClick={logoutOfApp} />
+
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={() => {}}>Profile</MenuItem>
+          <MenuItem onClick={() => {}}>My account</MenuItem>
+          <Divider />
+          <MenuItem onClick={logoutOfApp}>Logout</MenuItem>
+        </Menu>
+
+        <div
+          onClick={handleClick}
+          className="headerOption"
+          aria-controls="simple-menu"
+          aria-haspopup="true"
+        >
+          <Avatar className="headerOption__icon" src={user.photoURL}>
+            {user.displayName ? user.displayName[0] : ""}
+          </Avatar>
+          <h3 className="headerOption__title">ME</h3>
+        </div>
       </div>
     </div>
   );

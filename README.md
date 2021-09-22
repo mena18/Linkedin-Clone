@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+this is a very basic linkedin clone 
+
+![Alt Text](public/demo.gif)
+
+
 
 # TODO
 
@@ -13,20 +18,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     4. [X] get and add posts with firebase 
     5. [X] add skeleton loader
 5. [X] the widget section
-6. [ ] authentication
+6. [X] authentication
     1. [X] create login page
     2. [X] create signup page
-    3. [ ] add redux slice for users
-    4. [ ] authenticate with firebase
-7. [ ] deploy 
-8. [ ] make gif and add to the readme and organize the future todo
-
-
-
-# Future
-
-
-
+    3. [X] add redux slice for users
+    4. [X] make animation in the auth page
+    5. [X] authenticate with firebase
+    6. [X] allow for user to be always signed in
+    7. [X] add drop down menu to log out
+7. [X] deploy 
+8. [X] update the readme and add gif for the project
 
 
 
