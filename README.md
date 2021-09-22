@@ -1,8 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-this is a very basic linkedin clone 
+this is a very basic linkedin clone  you can view the [Demo here](https://linkedin-clone-7786b.web.app/)
 
 ![Alt Text](public/demo.gif)
+
 
 
 
