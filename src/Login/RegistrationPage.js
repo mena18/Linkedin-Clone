@@ -3,12 +3,14 @@ import "./auth.scss";
 import { login } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../app/firebase";
-
+import Button from "../button/Button";
 export default function Registration({ authType, setAuthType }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
+  const [loadingButton, setLoadingButton] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleRegistration = (e) => {
@@ -16,6 +18,7 @@ export default function Registration({ authType, setAuthType }) {
     if (!name) {
       return alert("A full name is required to register.");
     }
+    setLoadingButton(true);
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userAuth) => {
@@ -33,9 +36,13 @@ export default function Registration({ authType, setAuthType }) {
                 photoURL: profilePic,
               })
             );
+            setLoadingButton(false);
           });
       })
-      .catch((error) => alert(error));
+      .catch((error) => {
+        setLoadingButton(false);
+        alert(error);
+      });
   };
 
   return (
@@ -75,9 +82,17 @@ export default function Registration({ authType, setAuthType }) {
           type="password"
         />
 
-        <button type="submit" onClick={handleRegistration}>
+        {/* <button type="submit" onClick={handleRegistration}>
           Sign Up
-        </button>
+        </button> */}
+
+        <Button
+          size="xl"
+          loading={loadingButton}
+          disabled={!password || !email || !name}
+          text="Sign Up"
+          clickEvent={handleRegistration}
+        />
       </form>
 
       <p>

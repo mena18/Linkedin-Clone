@@ -3,14 +3,16 @@ import "./auth.scss";
 import { login } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../app/firebase";
-
+import Button from "../button/Button";
 export default function Login({ authType, setAuthType }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const [loadingButton, setLoadingButton] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoadingButton(true);
 
     auth
       .signInWithEmailAndPassword(email, password)
@@ -23,8 +25,12 @@ export default function Login({ authType, setAuthType }) {
             photoURL: userAuth.user.photoURL,
           })
         );
+        setLoadingButton(false);
       })
-      .catch((error) => alert(error));
+      .catch((error) => {
+        setLoadingButton(false);
+        alert(error);
+      });
   };
 
   return (
@@ -49,9 +55,16 @@ export default function Login({ authType, setAuthType }) {
           type="password"
         />
 
-        <button type="submit" onClick={handleLogin}>
+        {/* <button type="submit" onClick={handleLogin}>
           Sign In
-        </button>
+        </button> */}
+        <Button
+          size="xl"
+          loading={loadingButton}
+          disabled={!password || !email}
+          text="Sign in"
+          clickEvent={handleLogin}
+        />
       </form>
 
       <p>
